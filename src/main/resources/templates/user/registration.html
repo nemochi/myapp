@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>User page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <h1>ユーザ登録ページ</h1>
+    <form action="#" th:action="@{/user/registration}" th:object="${userRegistrationForm}" method="POST">
+      <div id="form-group">
+        <div class="form-parts-title">
+          お名前
+          
+          <span class="icon-require">必須</span>
+          <input type="text" th:field="*{userName}" />
+          <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"> name erro </p>
+        </div>
+      </div>
+        <div class="form-parts-title">
+          生年月日
+          <span class="icon-require">必須</span>
+          <input type="date" th:field="*{birthDate}" />
+          <p th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">hoge</p>
+        </div>
+      </div>
+        <div class="form-parts-title">
+          Email
+          <span class="icon-require">必須</span>
+          <input type="email" th:field="*{email}" />
+          <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">hoge</p>
+        </div>
+      </div>
+      </div>
+      <button type="submit">送信</button>
+    </form>
+  </body>
+</html>
